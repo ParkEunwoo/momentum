@@ -28,10 +28,8 @@ Momentum
 
 현재 위치에 알맞는 날씨를 보여준다.  
 날씨에 해당하는 아이콘, 현재 위치, 기온 등  
-[날씨 api](https://openweathermap.org/API)
-
-사진배경
----
+[날씨 api](https://openweathermap.org/API)  
+`https://api.openweathermap.org/data/2.5/weather?lat=<위도>&lon=<경도>&appid=<key>`
 
 랜덤하게 멋있는 사진을 배경으로 사용한다.  
 [사진 api](https://unsplash.com/documentation)
