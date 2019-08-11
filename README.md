@@ -31,5 +31,8 @@ Momentum
 [날씨 api](https://openweathermap.org/API)  
 `https://api.openweathermap.org/data/2.5/weather?lat=<위도>&lon=<경도>&appid=<key>`
 
+[아이콘](https://openweathermap.org/weather-conditions)
+[아이콘](https://materialdesignicons.com/cdn/2.0.46/)
+
 랜덤하게 멋있는 사진을 배경으로 사용한다.  
 [사진 api](https://unsplash.com/documentation)

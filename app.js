@@ -22,11 +22,16 @@ function getWeather(lat, lng){
         return json.weather.pop().main;
     })
     .then(icon => {
-        let icon_class = 'mdi-weather-';
+        let icon_class;
         switch(icon){
-            case 'Mist' : icon_class += 'pouring'; break;
-            case 'Sunny' : icon_class += 'sunny'; break;
-            case 'Cloudy' : icon_class += 'cloudy'; break;
+            case 'Thunderstorm' : icon_class = 'mdi-weather-lightning'; break;
+            case 'Rain' :
+            case 'Drizzle' : icon_class = 'mdi-weather-pouring'; break;
+            case 'Snow': icon_class = 'mdi-weather-snowy'; break;
+            case 'Clear': icon_class = 'mdi-weather-sunny'; break;
+            case 'Clouds': icon_class = 'mdi-weather-cloudy'; break;
+            case 'Mist': 
+            default: icon_class = 'mdi-weather-fog'; break;
         }
         weather.children[0].children[0].classList.add(icon_class);
     })
