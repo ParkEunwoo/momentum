@@ -14,12 +14,13 @@ navigator.geolocation.getCurrentPosition((position)=>{
 const weather = document.getElementById('weather');
 
 function getWeather(lat, lng){
+    console.log(weather.children[0].children[0]);
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=2313f72f528ba9b181f713691469a1df&units=metric`)
     .then(result => result.json())
     .then(json => {
-        weather.innerHTML += `<div>${json.main.temp}℃</div>`;
-        weather.innerHTML += `<div>${json.name}</div>`;
-        weather.innerHTML += `<div>${json.weather.pop().main}</div>`;
+        weather.children[0].children[1].innerHTML += `<div>${json.main.temp}℃</div>`;
+        weather.children[1].innerHTML += `<div>${json.name}</div>`;
+        weather.children[0].children[0].innerHTML += `<div>${json.weather.pop().main}</div>`;
     })
     .catch(e => console.log(e));
 }
