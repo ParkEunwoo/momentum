@@ -19,7 +19,16 @@ function getWeather(lat, lng){
     .then(json => {
         weather.children[0].children[1].innerHTML += `<div>${json.main.temp}℃</div>`;
         weather.children[1].innerHTML += `<div>${json.name}</div>`;
-        weather.children[0].children[0].innerHTML += `<div>${json.weather.pop().main}</div>`;
+        return json.weather.pop().main;
+    })
+    .then(icon => {
+        let icon_class = 'mdi-weather-';
+        switch(icon){
+            case 'Mist' : icon_class += 'pouring'; break;
+            case 'Sunny' : icon_class += 'sunny'; break;
+            case 'Cloudy' : icon_class += 'cloudy'; break;
+        }
+        weather.children[0].children[0].classList.add(icon_class);
     })
     .catch(e => console.log(e));
 }
