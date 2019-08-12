@@ -50,10 +50,39 @@ git hub desktop을 실행해서 sign in후 다음과 같은 화면을 만나볼 
 ![clone](clone.png)
 원하는 위치를 선택해서 clone을 시작한다.
 
-나의 작업을 시작하기 위해서 branch라는 것을 만들어야한다.
+자신의 작업은 자신의 branch에서 작업을 해야한다.
 ![branch](branch.png)
-Current branch를 선택 후 New branch 버튼을 누른다.
-![newbranch](newbranch.png)
-name에 자신의 이름을 영어로 적고, Create branch based on...에서 mentoring을 선택하고 브랜치를 생성한다.
+Current branch를 선택 후 자신의 branch를 찾아 선택한다.
 
-이렇게 준비가 끝나면 작업을 하고 저장을 해야할 시점마다 어떤 파일들을 관리할지 Changes에서 선택한 후 Summary에 어떠한 작업을 했는 지 적고 Commit to <브랜치 이름> 을 선택한다. 
+이렇게 준비가 끝나면 작업을 하고 저장을 해야할 시점마다 어떤 파일들을 관리할지 Changes에서 체크한 후 Summary에 어떠한 작업을 했는 지 적고 Commit to <브랜치 이름> 을 선택한다. 
+![commit](commit.png)
+
+새로운 버전이 생성되었기 때문에 해당 버전 이후 어떠한 변화가 없다고 화면에 나타나면 성공이다. 이런식으로 뭔가 변화가 있을 때마다 Commit을 하고 제출을 마음먹었을 때 상단 중앙에 Publish branch를 누르면 된다.
+
+![push](push.png)
+해당 작업을 push라고 부르며 완료되었을 때 중앙의 Create Pull Request 파란 버튼을 누르면 github 페이지로 이동하게 된다.
+
+![pullrequest](pullrequest.jpg)
+위의 화면에서
+`base: OOOOO <- compare: OOOOOO` 
+
+의 부분에서 **두 부분 모두 자신의 이름**이어야 한다.
+
+그 후 제목에 어떤 작업을 했는지 작성하고 밑의 큰 칸에 자세한 내용을 작성하도록 한다.
+
+그 후 Create pull request 버튼을 누르면 제출완료이다.
+
+Html이란?
+---
+
+visual studio code 에서 좌측에 5번째 메뉴를 선택한 뒤 **live server**라는 extension(plug in)을 설치한다. 특정 html file을 브라우저에서 볼 수 있도록 해주는 extension인데 설치 후 우측하단에서 **Go Live** 버튼을 누르면 브라우저에서 웹 페이지가 열리게 된다.  
+
+Html은 인터넷에서 주고 받는 파일의 형태이다. 내가 보는 웹사이트들은 대부분 html로 이루어져있다고 볼 수 있다. html은 웹사이트의 내용을 담고 있는데 트리형태의 구조를 이루고 있다. 물론 웹사이트를 아름답게 하고 사용자와 상호작용하는 등의 일을 html이 하지는 않는다. **html은 내용만 담고 있다.**  
+
+html의 문법은 태그의 시작과 끝으로 이루어져 있고 태그에는 속성과 해당 값이 들어갈 수 있다. 
+```html
+<태그 속성=값 속성=값>내용</태그>
+```
+layout 작성하기
+---
+README.md 파일을 읽고 어떻게 구성할지에 대한 그림을 직접 그려보는 것이 가장 좋다. 시계, 날씨, 인사 등을 어디에 배치할 것인지를 먼저 생각한 후에 직접 그림으로 그려본다. 대부분의 layout은 container와 item으로 구성된다고 볼 수 있다. item은 반드시 container에 포함되어 있어야하며 container는 반드시 item을 감싸야 한다. 물론 item은 다시 container가 될 수 있다. 이런 방식으로 가장 큰 container인 body에서 부터 차근차근 감싸다 보면 html 구조가 완성되어 있을 것이다.
