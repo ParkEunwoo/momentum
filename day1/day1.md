@@ -52,6 +52,7 @@ git hub desktop을 실행해서 sign in후 다음과 같은 화면을 만나볼 
 
 자신의 작업은 자신의 branch에서 작업을 해야한다.
 ![branch](branch.png)
+**브랜치는 내가 직접 생성해주어야 하므로 자신의 브랜치가 없다면 이야기해야함**  
 Current branch를 선택 후 자신의 branch를 찾아 선택한다.
 
 이렇게 준비가 끝나면 작업을 하고 저장을 해야할 시점마다 어떤 파일들을 관리할지 Changes에서 체크한 후 Summary에 어떠한 작업을 했는 지 적고 Commit to <브랜치 이름> 을 선택한다. 
@@ -60,6 +61,20 @@ Current branch를 선택 후 자신의 branch를 찾아 선택한다.
 새로운 버전이 생성되었기 때문에 해당 버전 이후 어떠한 변화가 없다고 화면에 나타나면 성공이다. 이런식으로 뭔가 변화가 있을 때마다 Commit을 하고 제출을 마음먹었을 때 상단 중앙에 Publish branch를 누르면 된다.
 
 ![push](push.png)
+push를 할 때 origin의 주소를 본인의 저장소 주소로 설정해야하는데 *깃허브 데스크탑을 자세히 알지 못하여 조금 어색한 방법을 사용해야할 듯 하다.*  
+자신의 repository주소를 복사해둔다.  
+[https://github.com/본인 닉네임/momentum.git]() 아마 이런 형태일 것이다.
+```
+상단의 repository->Open in Command Prompt 선택
+
+C언어 공부할 때 많이 보던 검정화면이 나타날 것이다.
+
+git remote add origin <복사한 자신의 주소>
+
+git remote -v
+
+했을 때 upstream 2개 origin 2개가 나오는데 upstream은 ParkEunwoo origin은 본인 닉네임이 들어간 주소이면 성공
+```
 해당 작업을 push라고 부르며 완료되었을 때 중앙의 Create Pull Request 파란 버튼을 누르면 github 페이지로 이동하게 된다.
 
 ![pullrequest](pullrequest.jpg)
@@ -85,4 +100,6 @@ html의 문법은 태그의 시작과 끝으로 이루어져 있고 태그에는
 ```
 layout 작성하기
 ---
-README.md 파일을 읽고 어떻게 구성할지에 대한 그림을 직접 그려보는 것이 가장 좋다. 시계, 날씨, 인사 등을 어디에 배치할 것인지를 먼저 생각한 후에 직접 그림으로 그려본다. 대부분의 layout은 container와 item으로 구성된다고 볼 수 있다. item은 반드시 container에 포함되어 있어야하며 container는 반드시 item을 감싸야 한다. 물론 item은 다시 container가 될 수 있다. 이런 방식으로 가장 큰 container인 body에서 부터 차근차근 감싸다 보면 html 구조가 완성되어 있을 것이다.
+README.md 파일을 읽고 어떻게 구성할지에 대한 그림을 직접 그려보는 것이 가장 좋다. 시계, 날씨, 인사 등을 어디에 배치할 것인지를 먼저 생각한 후에 직접 그림으로 그려본다. 대부분의 layout은 container와 item으로 구성된다고 볼 수 있다. item은 반드시 container에 포함되어 있어야하며 container는 반드시 item을 감싸야 한다. 물론 item은 다시 container가 될 수 있다. 이런 방식으로 가장 큰 container인 body에서 부터 차근차근 감싸다 보면 html 구조가 완성되어 있을 것이다.  
+
+body안에 div태그를 이용해서 구조를 잡고 
