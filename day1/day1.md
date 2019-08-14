@@ -111,9 +111,10 @@ semantic tag 종류
 - `<nav>`
 - `<section>`
 - `<summary>`
-- `<time>`
+- `<time>`  
+
 layout 작성하기
 ---
 README.md 파일을 읽고 어떻게 구성할지에 대한 그림을 직접 그려보는 것이 가장 좋다. 시계, 날씨, 인사 등을 어디에 배치할 것인지를 먼저 생각한 후에 직접 그림으로 그려본다. 대부분의 layout은 container와 item으로 구성된다고 볼 수 있다. item은 반드시 container에 포함되어 있어야하며 container는 반드시 item을 감싸야 한다. 물론 item은 다시 container가 될 수 있다. 이런 방식으로 가장 큰 container인 body에서 부터 차근차근 감싸다 보면 html 구조가 완성되어 있을 것이다.  
 
-body안에 div태그를 이용해서 구조를 잡고 
+body안에 div태그를 이용해서 구조를 잡고 완성한 뒤 semantic태그들로 하나씩 바꿔주는 것이 좋다. 인사 부분에서 이름 입력받는 태그는 input 이름 보여주는 태그는 span으로 만들어준다.
