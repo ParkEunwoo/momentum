@@ -77,7 +77,7 @@ git remote -v
 ```
 해당 작업을 push라고 부르며 완료되었을 때 중앙의 Create Pull Request 파란 버튼을 누르면 github 페이지로 이동하게 된다.
 
-![pullrequest](pullrequest.jpg)
+![pullrequest](pullrequest.JPG)
 위의 화면에서
 `base: OOOOO <- compare: OOOOOO` 
 
