@@ -3,6 +3,7 @@
 body {
     color: white;
     background-image: url("https://source.unsplash.com/category/arts-culture");
+    font-family: 'Nanum Myeongjo', serif;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,7 +24,19 @@ main{
 
 }
 
+
+time {
+    font-size: 8em;
+    font-weight: lighter;
+}
+
+.greeting {
+    margin-top: .5em;
+    font-size: 1.6em;
+}
+
 footer{
+    margin: 1em;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -32,10 +45,16 @@ footer{
     
 }
 
-time {
-    font-size: 8em;
+input{
+    flex: 0.5em;
+    border-bottom: .2em white solid;
+    outline: none;
+    border: none;
+    background: none;
+    color : blue;
+    font-size: 1em;
+    width: 3em;
+
+
 }
 
-.greeting {
-    font-size: 1.6em;
-}
