@@ -1,5 +1,41 @@
 @import 'reset.css';
 
 body {
-    color:blue;
+    color: white;
+    background-image: url("https://source.unsplash.com/category/arts-culture");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /*컨테이너의 축 이동*/
+    justify-content: center;
+
+
+}
+
+footer{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: left;
+    
+}
+
+time {
+    font-size: 8em;
+}
+
+.greeting {
+    font-size: 1.6em;
 }
