@@ -6,6 +6,15 @@ function setTime(){
 
 setInterval(setTime, 1000);
 
+function getCat(){
+    fetch('https://aws.random.cat/meow')
+    .then(result => result.json())
+    .then(json => {
+        document.body.style.backgroundImage = `url(${json.file})`;
+    })
+    .catch(e => console.log(e.message));
+}
+getCat();
 navigator.geolocation.getCurrentPosition((position)=>{
     const {latitude, longitude} = position.coords;
     getWeather(latitude, longitude);
