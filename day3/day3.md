@@ -72,3 +72,37 @@ name.onclick = function(){
     input.value = name.innerHTML;
 }
 ```
+
+fetch & async
+---
+이제 날씨 정보를 가져오기 위해서 api를 이용해야한다. api란 다른 사이트의 정보를 가져오는 방법이라고 생각하면 된다. 우리는 `fetch`라는 것을 이용해 사이트 주소를 통해 정보를 가져오겠다. 이를 위해 날씨 api를 제공해주는 [openweathermap](https://openweathermap.org/)에서 가져오기로 한다. 가져오기 위해서 우리는 api사용을 허락받을 비밀번호와 현재 위치를 알려주어야한다. api사용을 허락받을 비밀번호를 직접 발급받을 수 있겠지만 편의를 위해 ~~2313f72f528ba9b181f713691469a1df~~를 이용하도록 하겠다. 해당 api의 주소는 `https://api.openweathermap.org/data/2.5/weather?lat=<위도>&lon=<경도>&appid=2313f72f528ba9b181f713691469a1df&units=metric`에 위도와 경도를 입력해 주면 된다. 우리의 웹사이트를 접속하는 기기의 위치를 가져와서 저곳에 입력해 보도록 하겠다. navigator의 geolocation을 이용하면 된다.
+```javascript
+navigator.geolocation.getCurrentPosition(position => getWeather(position.coords), e => console.log(e.message));
+```
+여기서 getWeather 함수를 만들어주면 된다.
+```javascript
+function getWeather({latitude, longitude}){
+    const result = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=2313f72f528ba9b181f713691469a1df&units=metric`);
+}
+```
+위 처럼 작성하면 해당 주소를 통해 데이터를 얻어서 result에 저장하게 된다. `console.log`를 이용해 확인해 볼 수 있는데 잘 나오지 않는 모습을 확인할 수 있다. 이유는 api를 통해 값을 가져오는 일은 자바스크립트가 코드를 한줄씩 실행하는 속도보다 느리기 때문이다. 그래서 다 가져올 때 까지 기다려주는 코드를 작성해야한다.
+```javascript
+async function getWeather({latitude, longitude}){
+    const result = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=2313f72f528ba9b181f713691469a1df&units=metric`);
+}
+```
+함수앞에 `async`라는 키워드를 붙이고 기다려야할 작업 앞에 `await`을 붙이면 된다. `fetch`를 통해 얻어온 정보는 우리가 읽기 어려운 데이터인데 그것을 원하는 방식으로 변환시켜주어야한다. 이 또한 오래걸리는 작업이기 때문에 `await` 키워드를 붙인다.
+```javascript
+const json = await result.json();
+```
+이제 원하던 데이터를 얻었다. 이 데이터에서 원하는 부분만 골라서 넣어주면 된다.
+> ℃ = ㄹ + 한자 + 7
+```javascript
+temp.innerHTML = json.main.temp + '℃';
+place.innerHTML = json.name;
+```
+이제 아이콘을 넣어주기 위해서 어떤 날씨냐에 따라 원하는 클래스를 추가해 줄 것이다. 날씨의 종류는 [날씨 종류](https://openweathermap.org/weather-conditions) 이곳에서 확인할 수 있다. switch case문을 이용해 class이름을 맞추어 주면된다. 그 후
+```javascript
+icon.classList.add(className);
+```
+이런식으로 추가해줄 수 있다.
