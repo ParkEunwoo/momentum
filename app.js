@@ -11,6 +11,27 @@ function setTime(){
 
 setInterval(setTime, 1000);
 
+input.onchange = function(){
+    localStorage.setItem('name', input.value);
+    showName();
+}
+
+name.onclick = function(){
+    name.style.display = 'none';
+    input.style.display = 'inline-block';
+    input.value = name.innerHTML;
+}
+
+function showName(){
+    const storage = localStorage.getItem('name');
+    if(storage){
+        name.style.display = 'inline-block';
+        name.innerHTML = storage;
+        input.style.display = 'none';
+    }
+}
+
+showName();
 function getCat(){
     fetch('https://aws.random.cat/meow')
     .then(result => result.json())
@@ -49,26 +70,3 @@ async function getWeather({latitude, longitude}){
     }
     icon.classList.add(icon_class);
 }
-
-input.onchange = function({target}){
-    localStorage.setItem('name', target.value);
-    target.style.display = 'none';
-    showName();
-}
-
-name.onclick = function({target}){
-    target.style.display = 'none';
-    input.style.display = 'inline-block';
-    input.value = target.innerHTML;
-}
-
-function showName(){
-    const storage = localStorage.getItem('name');
-    if(storage){
-        name.style.display = 'inline-block';
-        name.innerHTML = storage;
-        input.style.display = 'none';
-    }
-}
-
-showName();
