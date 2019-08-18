@@ -1,7 +1,7 @@
 const time = document.getElementById('time');
 
 function setTime(){
-    time.innerHTML = (new Date()).toJSON().split('T').pop().slice(0, 8);
+    time.innerHTML = (new Date()).toLocaleTimeString().slice(3);
 }
 
 setInterval(setTime, 1000);
