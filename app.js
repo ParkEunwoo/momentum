@@ -1,4 +1,9 @@
 const time = document.getElementById('time');
+const temp = document.getElementById('temp');
+const icon = document.getElementById('icon');
+const place = document.getElementById('place');
+const name = document.getElementById('name');
+const input = document.getElementById('input');
 
 function setTime(){
     time.innerHTML = (new Date()).toLocaleTimeString().slice(3);
@@ -15,24 +20,23 @@ function getCat(){
     .catch(e => console.log(e.message));
 }
 getCat();
+
 navigator.geolocation.getCurrentPosition((position)=>{
     const {latitude, longitude} = position.coords;
     getWeather(latitude, longitude);
 }, (e)=>console.log(e));
 
-const weather = document.getElementById('weather');
-
 function getWeather(lat, lng){
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=2313f72f528ba9b181f713691469a1df&units=metric`)
     .then(result => result.json())
     .then(json => {
-        weather.children[0].children[1].innerHTML += `<div>${json.main.temp}℃</div>`;
-        weather.children[1].innerHTML += `<div>${json.name}</div>`;
+        temp.innerHTML += `<div>${json.main.temp}℃</div>`;
+        place.innerHTML += `<div>${json.name}</div>`;
         return json.weather.pop().main;
     })
-    .then(icon => {
+    .then(main => {
         let icon_class;
-        switch(icon){
+        switch(main){
             case 'Thunderstorm' : icon_class = 'mdi-weather-lightning'; break;
             case 'Rain' :
             case 'Drizzle' : icon_class = 'mdi-weather-pouring'; break;
@@ -42,13 +46,10 @@ function getWeather(lat, lng){
             case 'Mist': 
             default: icon_class = 'mdi-weather-fog'; break;
         }
-        weather.children[0].children[0].classList.add(icon_class);
+        icon.classList.add(icon_class);
     })
     .catch(e => console.log(e));
 }
-
-const input = document.getElementById('input');
-const name = document.getElementById('name');
 
 input.onchange = function(e){
     localStorage.setItem('name', e.target.value);
