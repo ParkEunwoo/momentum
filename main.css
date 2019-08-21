@@ -45,12 +45,27 @@ footer{
     
 }
 
+.icon{
+    font-size: 5em;
+}
+
+.place{
+    font-size: 1.6em;
+    margin-bottom: 0.5em;
+}
+
+.figcaption{
+    font-size: 1.2em;
+    margin-top: 0.6em;
+}
+
 input{
     flex: 0.5em;
-    border-bottom: .2em white solid;
+    
     outline: none;
     border: none;
     background: none;
+    border-bottom: .1em white solid;
     color : blue;
     font-size: 1em;
     width: 3em;
