@@ -19,6 +19,8 @@ main {
     flex-direction: column;
     align-items: center; /*축 이동 */
     justify-content: center; /* 아이템 이동*/
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.5em;
 }
 
 header {
@@ -60,5 +62,5 @@ input {
     border-bottom: 0.1em white solid;
     font-size: 1em;
     font-family: 'Nanum Myeongjo', serif;
-    width: 3em;
+    width: 5em;
 }
