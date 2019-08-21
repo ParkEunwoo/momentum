@@ -13,3 +13,26 @@ function showTime(){
 
 
 setInterval(showTime,1000);
+
+input.onchange = function(){
+    console.log(input.value);
+    localStorage.setItem("name",input.value);
+    showName();
+}
+
+name.onclick = function(){
+    input.style.display='inline-block';
+    input.value=name.innerText;
+    name.style.display='none';
+}
+
+function showName(){
+    name.style.display='inline-block';
+    name.innerText = localStorage.getItem("name");
+    input.style.display ='none';
+
+}
+
+
+
+showName();
