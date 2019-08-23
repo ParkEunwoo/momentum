@@ -1,1 +1,75 @@
 @import 'reset.css';
+
+body {
+    color: white;
+    background-image: url("https://source.unsplash.com/category/arts-culture");
+    font-family: 'Black Han Sans', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /*컨테이너의 축 이동*/
+    justify-content: center;
+
+
+}
+
+
+time {
+    font-size: 8em;
+    font-weight: lighter;
+}
+
+.greeting {
+    margin-top: .5em;
+    font-size: 1.6em;
+}
+
+footer{
+    margin: 1em;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: left;
+    
+}
+
+.icon{
+    font-size: 5em;
+}
+
+.place{
+    font-size: 1.6em;
+    margin-bottom: 0.5em;
+}
+
+.figcaption{
+    font-size: 1.2em;
+    margin-top: 0.6em;
+}
+
+input{
+    flex: 0.5em;
+    
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: .1em white solid;
+    color : blue;
+    font-size: 1em;
+    width: 3em;
+
+
+}
+
