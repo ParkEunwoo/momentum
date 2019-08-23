@@ -1,1 +1,66 @@
 @import 'reset.css';
+
+body {
+    background-image: url("https://source.unsplash.com/category/nature");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh; /* increaing about body size regardless of size of image*/
+
+    color: white;
+    display: flex;
+    flex-direction: column; /*세로방향으로 바꿈*/
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*축 이동 */
+    justify-content: center; /* 아이템 이동*/
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.5em;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*클래스를 가져올때는 점찍고 이름쓰기*/
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 1em;
+}
+
+.temp {
+    margin-left: 1em;
+}
+
+time {
+    font-size:4em;
+    font-weight: bolder;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.place {
+    font-size:1em;
+    font-family: 'Nanum Myeongjo', serif;
+    text-align: right;
+}
+
+input {
+    outline: none;
+    background: none;
+    border: none;
+    color: white;
+    border-bottom: 0.1em white solid;
+    font-size: 1em;
+    font-family: 'Nanum Myeongjo', serif;
+    width: 5em;
+}
